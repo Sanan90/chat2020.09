@@ -1,0 +1,33 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<VBox fx:controller="client.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="center">
+
+    <stylesheets>
+        <URL value="@/style.css"/>
+    </stylesheets>
+
+    <HBox fx:id="authPanel" visible="true" managed="true">
+        <TextField fx:id="logindField" promptText="login" HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="passwordField" promptText="password" HBox.hgrow="ALWAYS"
+                   onAction="#tryToLogin"/>
+        <Button text="Войти" onAction="#tryToLogin" minWidth="50"/>
+        <Button text="Регистрация" onAction="#registratioin" minWidth="50"/>
+
+    </HBox>
+
+    <HBox VBox.vgrow="ALWAYS" >
+        <TextArea fx:id="textArea" HBox.hgrow="ALWAYS" editable="false" wrapText="true"/>
+        <ListView fx:id="clientList" visible="false" managed="false" minWidth="50"
+                  onMouseClicked="#clickClientList"/>
+    </HBox>
+
+
+    <HBox fx:id="mshPanel" visible="false" managed="false">
+        <TextField fx:id="textField" promptText="input message" HBox.hgrow="ALWAYS"
+                   onAction="#sendMsg"/>
+        <Button text="send" onAction="#sendMsg"/>
+    </HBox>
+
+</VBox>
